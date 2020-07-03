@@ -5,16 +5,35 @@ const mediaRoutes = require("./services/media")
 const reviewsRoutes = require("./services/reviews")
 const listEndpoints = require("express-list-endpoints")
 const { join } = require("path")
+const helmet = require("helmet")
 
 const server = express()
 
 const publicFolderPath = join(__dirname, "../public")
 
-const port = 3003
+const port = process.env.PORT
+
+const allowedConntections =
+    process.env.NODE_ENV = "production"
+        ?
+        [process.env.FE_URL]
+        :
+        [process.env.FE_DEV]
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (allowedConntections.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error("Not allowed by CORS!"))
+        }
+    }
+}
 
 server.use(express.json())
+server.use(cors(corsOptions))
+server.use(helmet())
 server.use(express.static(publicFolderPath))
-server.use(cors())
 //Routes
 server.use("/media", mediaRoutes)
 server.use("/reviews", reviewsRoutes)
