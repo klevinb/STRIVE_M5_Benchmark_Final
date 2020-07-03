@@ -2,8 +2,6 @@ const express = require("express")
 const {
     readMedia,
     writeMedia,
-    readReviews,
-    writeReviews
 } = require("../../functions")
 const { join } = require("path")
 
@@ -80,7 +78,7 @@ route.delete("/:imdbID", async (req, res, next) => {
         const media = await readMedia(mediaPath)
         const findMedia = media.find(m => m.imdbID === req.params.imdbID)
         if (findMedia) {
-            await writeMedia(media, media.filter(m => m.imdbID !== req.params.imdbID))
+            await writeMedia(mediaPath, media.filter(m => m.imdbID !== req.params.imdbID))
             res.status(200).send("Deleted!")
         } else {
             const err = new Error()
