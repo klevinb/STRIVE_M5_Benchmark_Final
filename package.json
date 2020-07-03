@@ -19,12 +19,18 @@
   },
   "homepage": "https://github.com/klevinb/STRIVE_M5_Benchmark_Final#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.2.1",
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-list-endpoints": "^4.0.1",
     "express-validator": "^6.6.0",
     "fs-extra": "^9.0.1",
+    "multer": "^1.4.2",
+    "pdfmake": "^0.1.66",
+    "roboto-font": "^0.1.0",
+    "sendgrid": "^5.2.3",
     "uniqid": "^5.2.0"
   },
   "devDependencies": {

@@ -4,18 +4,20 @@ const { badRequest, notFound, genericError } = require("./errorHandlers")
 const mediaRoutes = require("./services/media")
 const reviewsRoutes = require("./services/reviews")
 const listEndpoints = require("express-list-endpoints")
+const { join } = require("path")
 
 const server = express()
 
-const port = 3001
+const publicFolderPath = join(__dirname, "../public")
+
+const port = 3003
 
 server.use(express.json())
-
+server.use(express.static(publicFolderPath))
 server.use(cors())
 //Routes
 server.use("/media", mediaRoutes)
 server.use("/reviews", reviewsRoutes)
-
 
 //error handlers
 
