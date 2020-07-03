@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -r dotenv/config ./src/server.js",
-    "start": "serve -s build"
+    "dev": "nodemon -r dotenv/config ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -33,8 +32,7 @@
     "pdfmake": "^0.1.66",
     "roboto-font": "^0.1.0",
     "sendgrid": "^5.2.3",
-    "uniqid": "^5.2.0",
-    "serve": "^9.4.0"
+    "uniqid": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
