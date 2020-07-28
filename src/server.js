@@ -31,7 +31,7 @@ const corsOptions = {
 }
 
 server.use(express.json())
-server.use(cors(corsOptions))
+server.use(cors())
 server.use(helmet())
 server.use(express.static(publicFolderPath))
 //Routes
